@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10pt, conference]{ieeeconf}                             
+\IEEEoverridecommandlockouts         % Needed if you want to use the \thanks command
+                                                     
+\overrideIEEEmargins                                                            
+
+
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath}
+\usepackage{amssymb,longtable,calc}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}                                                        
+\usepackage[utf8]{inputenc}                                                     
+\usepackage[english]{babel}                                                     
+\usepackage{epsfig}                                                             
+\usepackage{subfigure}                                                          
+\usepackage{textcomp} %<- allows to use \textdegree but may overwrite           
+                      %other settings                                           
+\usepackage[textwidth=2cm,colorinlistoftodos,disable]{todonotes} %add disable   
+     
+										                         
+\usepackage{tikz}                                                               
+\usetikzlibrary{arrows,positioning,fit,shapes,calc}
+\usetikzlibrary{matrix}
+\usepackage{flushend}                                                           
+\usepackage{hyperref}  
+\usepackage{amsmath}                                                         
+% \usepackage{multirow}   
+
+\usepackage{algorithm}    
+\usepackage{algorithmic}
+
+\usepackage{pgfplots} 
+\usepackage{pgfplotstable}
+
+\usepackage{cite}
+
+% helper packages to work on the draft
+\usepackage[tikz]{bclogo}
+\usepackage{lipsum}
+
+\usepackage{standalone}
+
+\pgfplotsset{compat=newest}
+\pgfplotsset{ 
+  tick label style={font=\footnotesize}, 
+  label style={font=\footnotesize}, 
+  legend style={font=\footnotesize},
+  title style = {font=\small}
+}
+\pgfplotscreateplotcyclelist{line style}{% 
+  solid, mark options = {scale = .75}, every mark/.append style={fill=gray},mark=*\\% 
+  densely dashed,mark options = {scale = .75},every mark/.append style={solid,fill=gray},mark=*\\% 
+  densely dotted,mark options = {scale = .75},every mark/.append style={solid,fill=gray},mark=*\\% 
+  dashed,mark options = {scale = .75},every mark/.append style={solid,fill=gray},mark=*\\% 
+  dotted,mark options = {scale = .75},every mark/.append style={solid,fill=gray},mark=*\\% 
+}
+\pgfplotscreateplotcyclelist{bar style}{% 
+  solid, fill=black!60!white\\%
+  solid, fill=black!45!white\\%
+  solid, fill=black!35!white\\%
+  solid, fill=black!25!white\\%
+}
+
+
+\usepackage{xspace}
+\makeatletter                                                                   
+\DeclareTextCommandDefault{\textregisteredalt}{\footnotesize\textcircled{%      
+      \check@mathfonts\fontsize\sf@size\z@\math@fontsfalse\selectfont R}}       
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}                     
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}                             
+\def\eg{e.g\onedot}                                                             
+\def\ie{i.e\onedot}                                                             
+\def\vgl{see }                                                                  
+\def\Fig{Fig\onedot }                                                           
+\def\Tab{Tab\onedot }                                                           
+\def\Eq{Eq\onedot }
+\def\Sec{Sec\onedot}                                                            
+\def\etc{etc\onedot}                                                            
+\def\etal{\textsl{et al}\onedot}                                                
+\def\argmin{\mathop{\rm arg\,min}}                                              
+\makeatother
+                                                                    
+\definecolor{lightGray}{rgb}{0.0,0.0,0.0}
+                                                                                
+\title{\LARGE \bf The Importance of Being Bryce}                                                                               
+                                                                                
+                                                                                
+\author{Hang Kayu ~~ Francisco Vina ~~ Michele Colendachise ~~ Karl Pauwels ~~ Alessandro Pieropan ~~ Danica Kragic%
+\thanks{}%
+\thanks{}
+\thanks{}}
+
+\begin{document}                                                                
+                                                                                
+\maketitle                                                                      
+\thispagestyle{empty}                                                           
+\pagestyle{empty}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+bla bla bla
+  
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUCTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{}
+\section{INTRODUCTION}
+\label{sec:introduction}
+
+more bla bla bla
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% PR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{platform}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% PR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{strategy}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% SHELF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{shelf}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% BTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{bts}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% VISION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{vision}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% GRASPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{grasping}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Final bla bla bla
+
+\end{document}
