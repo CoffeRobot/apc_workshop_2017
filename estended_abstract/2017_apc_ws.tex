@@ -105,8 +105,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-bla bla bla
-  
+In this paper we will present our framework used in the Amazon Picking Challenge in 2015 and some lessons-learned that may prove useful to researchers and future teams participating in the competition. The competition proved to be a very useful occasion to integrate the work of various researchers at the Robotics, Perception and Learning laboratory of KTH, measure the performance of our robotics system and define the future direction of our research.
+
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUCTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,7 +114,9 @@ bla bla bla
 \section{INTRODUCTION}
 \label{sec:introduction}
 
-more bla bla bla
+There are three main criteria engineers evaluates when determining the need of robots in certain applications: dirty, dull and dangerous. Those are known as the 3D of Robotics. The application proposed by the Amazon Picking Challenge meets certainly the second criteria as picking and placing objects in boxes could be a very repetitive and boring job. However, despite the defined and controlled environment the application of robots is still very challenging due to the nature of the objects to handle.
+In this work we present the framework we develop at the Robotic, Perception and Learning lab (RPL) in 2015 with the purpose of sharing the lessons learned with the community.
+First we will describe the platform used in the competition in Sec.\ref{sec:platform} to motivate the strategy we adopted in Sec.\ref{sec:strategy}. Then we will describe the core of our system that controls the whole pipeline of actions using behavioural trees in Sec.\ref{sec:trees}. Then we will describe our perception module starting with the localization of the shelf in Sec.\ref{sec:shelf} and detections of the objects \ref{sec:vision}. Finally we will describe our grasping strategy in Sec.~\ref{sec:grasping} and draw some conclusion about the limitation of our system in Sec.\ref{sec:conclusion}.
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%% PR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \input{platform}
@@ -122,11 +124,11 @@ more bla bla bla
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%% PR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \input{strategy}
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%% SHELF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\input{shelf}
-
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%% BTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{bts}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%% SHELF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{shelf}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%% VISION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{vision}
@@ -137,6 +139,6 @@ more bla bla bla
 \section{Conclusion}
 \label{sec:conclusion}
 
-Final bla bla bla
+We presented the framework used in the competition in 2015 and all the challenges we had to face. We hope that our work can be useful to future teams 
 
 \end{document}
