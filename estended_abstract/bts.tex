@@ -2,8 +2,31 @@
 \label{sec:trees}
 
 
-Behavior Trees (BTs) are a graphical mathematical model for reactive fault tolerant action executions. They originated in the video-game to control non-player characters, and is now an established tool appearing in textbooks \cite{millington2009artificial,rabin2014gameAiPro} and generic game-coding software such as Pygame1, Craft AI 2 , and the Unreal Engine3. In robotics, BTs are appreciated for being highly modular, flexible and reusable, and have also been shown to generalize other successful control architectures such as the Subsumption architecture, Decision Trees~\cite{tro16colledanchise} and the Teleo-reactive Paradigm~\cite{Colledanchise16iros}.
-
+BTs are a graphical mathematical model for reactive fault tolerant action executions. They originated in the video-game to control non-player characters, and is now an established tool appearing in textbooks \cite{millington2009artificial,rabin2014gameAiPro} and generic game-coding software such as Pygame1, Craft AI 2 , and the Unreal Engine3. In robotics, BTs are appreciated for being highly modular, flexible and reusable, and have also been shown to generalize other successful control architectures such as the Subsumption architecture, Decision Trees~\cite{colledachise17tro} and the Teleo-reactive Paradigm~\cite{Colledanchise16iros}.
+%\subsection{Semantic}
+%Here we breafly describe the semantic of BTs. An exaustive description can be found in~\cite{colledachise17tro}.
+% 
+%A BT is a directed rooted tree with the the common definition of \emph{parent} and \emph{child} node. Graphically, the children of nodes are placed below it. The children nodes are executed in the order from left to right.
+%
+%The execution of a BT begins from the root node that sends \emph{ticks}~\footnote{A tick is a signal that allows the execution of a node} with a given frequency to its (only) child. When a parent sends a tick to a child, the execution of this is allowed. The child returns to the parent a status \emph{running} if its execution has not finished yet, \emph{success} if it has achieved its goal, or \emph{failure} otherwise.\\ 
+%There are four types of internal nodes (fallback, sequence, parallel, and decorator) and two types of leaf nodes (action and condition). Below we describe the execution of the nodes used in our framework.
+%
+%\paragraph*{Fallback}
+%The fallback node send ticks to its children from the  left, returning success (running) when it finds a child that returns success (running). It returns failure only when all the children return failure. When a child returns running or success, the fallback node does not send ticks the next child (if any).
+%A fallback node is graphically represented by a box labeled with a \say{?}, as in Figure~\ref{bg.fig.sel}.
+%
+%\paragraph*{Sequence}
+%The sequence node sends ticks to its children from the  left, returning failure (running) when it finds a child that returns failure (running). It returns success only when all the children return success. When a child returns running or failure, the sequence node does not send ticks the next child (if any). A sequence node is graphically represented by a box labeled with a \say{$\rightarrow$}, as in Figure~\ref{bg.fig.seq}.
+%
+%\paragraph*{Action}
+%The action node performs an action. It return running while the action is being performed. It return success of the action is completed correctly, otherwise it return failure. An action node is graphically represented by a rectangle labeled with the name of the action, as in Figure~\ref{bg.fig.seq}.
+%
+%
+%\paragraph*{Condition}
+%The condition node checks if a condition is satisfied or not, returning success or failure accordingly.  An action node is graphically represented by an ellipse labeled with the name of the condition, as in Figure~\ref{bg.fig.seq}.
+%
+%
+%\subsection{BTs in APC}
 In our framework, the use of BTs allowed us to have a control architecture that is:
 
 \begin{itemize}
