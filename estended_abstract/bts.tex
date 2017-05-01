@@ -1,3 +1,16 @@
-\section{Behavioral Trees}
+\section{Behavior Trees}
 \label{sec:trees}
+
+
+Behavior Trees (BTs) are a graphical mathematical model for reactive fault tolerant action executions. They originated in the video-game to control non-player characters, and is now an established tool appearing in textbooks \cite{millington2009artificial,rabin2014gameAiPro} and generic game-coding software such as Pygame1, Craft AI 2 , and the Unreal Engine3. In robotics, BTs are appreciated for being highly modular, flexible and reusable, and have also been shown to generalize other successful control architectures such as the Subsumption architecture, Decision Trees~\cite{tro16colledanchise} and the Teleo-reactive Paradigm~\cite{Colledanchise16iros}.
+
+In our framework, the use of BTs allowed us to have a control architecture that is:
+
+\begin{itemize}
+\item \textbf{Reactive:} The Reactive execution allowed us to have a system that rapidly reacts with unexpected changes in the sense that if an object slips out of the robot gripper, the robot will automatically stop and pick it up again without the need to re-plan or change the BT; or if the position of a robot is lost, the robot will re-execute the routine of the object detection.
+\item \textbf{Modular:} The Modular design allowed us to subdivide the behavior into smaller modules, that were independently created and then used in different stages of the project. This design allowed our heterogeneity developers’ expertise, letting developers implementing their code in their preferred programming language and style.
+\item \textbf{Fault Tolerant:} The fault tolerant allowed us to handle actions failure by composing different actions meant for the same goals in a fallback. (e.g. different types of grasps).
+\end{itemize}
+
+
 
