@@ -1,7 +1,19 @@
-\section{Grasping}
+\section{Manipulation and Grasping}
 \label{sec:grasping}
 
-Once the target object is detected, the object frame is obtained from our vision system. In order to grasp the object, since our PR2 is equipped with parallel grippers, we need to decide from which position and in which direction the gripper is going to approach the object. For this, we always project the object frame based on the bin frame such that the X axis of the object frame points inwards the shelf, and the Z axis points downwards. Note that in order to ensure that the object can be approached without collision, we labeled all objects in offline so that the X axis returned from the vision system can be always approached, i.e. the gripper is wide enough to grasp the corresponding side. Thereafter, similarly to the grasping stages in \cite{hang2016b}, our grasping system works in the following steps:
+For robot arm motion planning we used the MoveIt! software framework and its
+default randomized motion planners. Even though MoveIt! provides seamless integration with ROS-enabled robots, we faced some difficulties when applying it in our PR2 APC setup. The randomized planners (e.g. RRT) often had difficulties in finding collision free trajectories
+to move the robot arm in constrained spaces such as the interior of the bins. Even when it did find suitable trajectories, they would often  generate very large joint displacements even for small end-effector cartesian motions, which 
+increased the chance of generating collisions with the shelf. 
+We partially alleviated these
+problems by exploiting the simpler 2D kinematic motion control of the robot base e.g.
+to retreat from the shelf. Optimization based motion planners and a more specialized
+kinematic structure of the robot are possible directions of work that would address
+these issues. 
+
+Once the target object is detected, the object frame is obtained from our vision system. Given that the PR2 is equipped with parallel grippers, we must then decide from which position and in which direction the gripper is going to approach the object in order to then grasp the object
+in a secure way. For this, we always project the object frame based on the bin frame such that the X axis of the object frame points inwards the shelf, and the Z axis points downwards. Note that in order to ensure that the object can be approached without generating collisions,
+we manually labeled all objects offline so that the X axis returned from the vision system can always be approached with the gripper, i.e. that the gripper opening is wide enough to grasp the corresponding side of the object. Thereafter, similarly to the grasping stages in \cite{hang2016b}, our grasping system works in the following steps:
 \begin{itemize}
  \item \textbf{Pre-grasping:} The gripper is posed in front of the bin and aligned in X axis of object frame, the gripper's opening direction is aligned in the XY plane of object frame.
  \item \textbf{Approaching:} The gripper approaches the object in X direction until a pre-determined depth in the object frame is reached.

@@ -143,7 +143,29 @@ First we will describe the platform used in the competition in Sec.\ref{sec:plat
 \section{Conclusion}
 \label{sec:conclusion}
 
-We presented the framework used in the competition in 2015 and all the challenges we had to face. With hindsight we would have brought our own robot to the competition since many of the issue we had to address were related to the robot provided at the venue, leaving us no time to calibrate and tune our framework. Moreover the team lacked in mechanical expertise restricting our choice of the platform to the PR2, the most suited robot we had in our laboratory at the time. It would have been nice to design a specialized robot for the competition as other teams did.
+We presented the framework used in the APC 2015 and the challenges that we faced.
+Overall, perception was the most challenging component for the competition although
+the challenges inherent to manipulation and grasping should not be underestimated. We can propose
+the following suggestions to researchers and engineers designing bin-picking robotic
+systems given our experience at the APC 2015:
+
+\begin{itemize}
+\item \textbf{Robot kinematic design.} In order to facilitate motion control of the robot manipulator   and minimize the risk of generating collisions it is best to design its kinematic
+  structure to be completely tailored to the task instead of a general purpose humanoid kinematic configuration such as our PR2 robot. 
+\item \textbf{Grasping via suction devices.} Using suction devices for grasping would have
+  greatly increased our grasp success rate. Suction is the de facto solution
+  to robot grasping in many industrial applications, including robot bin picking.
+  Part of the reason for this is that suction
+  is in general more tolerant to errors in perception and motion control since it is less demanding
+  in terms of where to position the gripper relative to the object to be grasped. An object whose size is comparable to the maximum openning of a robot's parallel gripper requires very precise
+  positioning of the gripper,  otherwise the robot will unintentionally push the object away when approaching it. On other hand, suction devices have a higher likelihood of yielding a successful grasp under positioning errors as long as it is still in contact with part of the
+  object's surface. This also means that the requirements for the perception system could be
+  lowered, e.g. by segmenting identifying flat object surfaces instead of performing full 6D pose estimation and requiring less accurate object pose estimation. 
+ \item \textbf{Perception.} ?
+\end{itemize}
+
+
+%% With hindsight we would have brought our own robot to the competition since many of the issue we had to address were related to the robot provided at the venue, leaving us no time to calibrate and tune our framework. Moreover the team lacked in mechanical expertise restricting our choice of the platform to the PR2, the most suited robot we had in our laboratory at the time. It would have been nice to design a specialized robot for the competition as other teams did.
 
 \section*{ACKNOWLEDGMENTS}
 

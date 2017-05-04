@@ -15,9 +15,11 @@ and release them in the target box.
 
 We provided some minor hardware modifications to the PR2 robot in order to
 address some of the challenges  of the picking task,
-including custom-made extension fingers for the parallel gripper in order
-to be able to reach further inside of the bins of the shelf. Furthermore,
-we attached a high resolution webcamera on the PR2's head in order to get
+namely custom-made extension fingers for the parallel gripper in order
+to be able to reach further inside of the bins of the shelf and a high resolution
+webcamera which we attached on the PR2's head in order to get
 a richer set of image features for our Simtrack vision system to detect the target 
 objets in the shelf.
 
+The robot ran on an Ubuntu 12.04 computer with a real-time linux kernel that provides
+1 KHz manipulator control. All the high level task execution, perception, grasping and manipulation software components were developed under the Robot Operating System (ROS).
