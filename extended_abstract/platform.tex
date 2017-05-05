@@ -14,19 +14,19 @@ exploited in order to control the robot back and forth from the shelf to pick up
 and release them in the target box.
 
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[trim=15.0cm 4.0cm 6.0cm 0cm,clip=true,scale=0.07]{figures/pr2.jpg}
-\caption{Team CVAP's PR2 robot platform used for the Amazon Picking Challenge 2015 in Seattle, USA.}\label{fig:baxter}
+\caption{Team CVAP's PR2 robot platform used for the Amazon Picking Challenge 2015 in Seattle, USA.}\label{fig:PR2}
 \end{figure}
 
 We provided some minor hardware modifications to the PR2 robot in order to
 address some of the challenges  of the picking task,
 namely custom-made extension fingers for the parallel gripper in order
 to be able to reach further inside of the bins of the shelf and a high resolution
-webcamera which we attached on the PR2's head in order to get
+web camera which we attached on the PR2's head in order to get
 a richer set of image features for our Simtrack vision system to detect the target 
-objets in the shelf.
+objects in the shelf.
 
-The robot ran on an Ubuntu 12.04 computer with a real-time linux kernel that provides
+The robot ran on an Ubuntu 12.04 computer with a real-time Linux kernel that provides
 1 KHz manipulator control. All the high level task execution, perception, grasping and manipulation software components were developed under the Robot Operating System (ROS).

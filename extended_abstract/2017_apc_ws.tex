@@ -120,7 +120,7 @@ In this paper we will present our framework used in the Amazon Picking Challenge
 There are three main criteria engineers evaluate when determining the need of robots in certain applications: dirty, dull and dangerous. Those are known as the 3D of Robotics. The application proposed by the Amazon Picking Challenge meets certainly the second criteria as picking and placing objects in boxes is a very repetitive and dull task with tremendous potential
 for automation. However, despite the defined and controlled environment the application of robots is still very challenging due to the nature of the objects to handle.
 In this work we present the framework we developed at the Robotic, Perception and Learning lab (RPL) in 2015 with the purpose of sharing the lessons learned with the community.
-First we will describe the platform used in the competition in Sec.\ref{sec:platform} to motivate the strategy we adopted in Sec.\ref{sec:strategy}. Then we will describe the core of our system that controls the whole pipeline of actions using Behavior Trees (BTs) in Sec.\ref{sec:trees}. Then we will describe our perception module starting with the localization of the shelf in Sec.\ref{sec:shelf} and detections of the objects \ref{sec:vision}. Finally we will describe our grasping strategy in Sec.~\ref{sec:grasping} and draw some conclusion about the limitations of our system in Sec.\ref{sec:conclusion}.
+First we will describe the platform used in the competition in Sec.\ref{sec:platform} to motivate the strategy we adopted in Sec.\ref{sec:strategy}. Then we will describe the core of our system that controls the whole pipeline of actions using Behavior Trees (BTs) in Sec.\ref{sec:trees}. Then we will describe our perception module starting with the localization of the shelf in Sec.\ref{sec:shelf} and detection of the objects in Sec.~s \ref{sec:vision}. Finally we will describe our grasping strategy in Sec.~\ref{sec:grasping} and draw some conclusion about the limitations of our system in Sec.\ref{sec:conclusion}.
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%% PR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \input{platform}
@@ -157,11 +157,11 @@ systems given our experience at the APC 2015:
   to robot grasping in many industrial applications, including robot bin picking.
   Part of the reason for this is that suction
   is in general more tolerant to errors in perception and motion control since it is less demanding
-  in terms of where to position the gripper relative to the object to be grasped. An object whose size is comparable to the maximum openning of a robot's parallel gripper requires very precise
+  in terms of where to position the gripper relative to the object to be grasped. An object whose size is comparable to the maximum opening of a robot's parallel gripper requires very precise
   positioning of the gripper,  otherwise the robot will unintentionally push the object away when approaching it. On other hand, suction devices have a higher likelihood of yielding a successful grasp under positioning errors as long as it is still in contact with part of the
   object's surface. This also means that the requirements for the perception system could be
-  lowered, e.g. by segmenting identifying flat object surfaces instead of performing full 6D pose estimation and requiring less accurate object pose estimation. 
- \item \textbf{Perception.} ?
+  lowered, e.g. by segmenting identifying flat object surfaces instead of performing full 6DOF pose estimation and requiring less accurate object pose estimation. 
+ \item \textbf{Deep learning for object detection.} Given the impressive results of convolutional neural networks in recent years, our perception system would greatly improve its recognition accuracy using a network trained to recognized the objects used in the challenge. There are well known networks that can localized objects in real time, it would be interesting to see how deep learning can be leveraged to estimate the 6 DOF of objects.
 \end{itemize}
 
 

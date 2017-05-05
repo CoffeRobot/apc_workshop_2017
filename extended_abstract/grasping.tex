@@ -3,7 +3,7 @@
 
 For robot arm motion planning we used the MoveIt! software framework and its
 default randomized motion planners. Even though MoveIt! provides seamless integration with ROS-enabled robots, we faced some difficulties when applying it in our PR2 APC setup. The randomized planners (e.g. RRT) often had difficulties in finding collision free trajectories
-to move the robot arm in constrained spaces such as the interior of the bins. Even when it did find suitable trajectories, they would often  generate very large joint displacements even for small end-effector cartesian motions, which 
+to move the robot arm in constrained spaces such as the interior of the bins. Even when it did find suitable trajectories, they would often  generate very large joint displacements even for small end-effector Cartesian motions, which 
 increased the chance of generating collisions with the shelf. 
 We partially alleviated these
 problems by exploiting the simpler 2D kinematic motion control of the robot base e.g.
