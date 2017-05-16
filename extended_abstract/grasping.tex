@@ -1,0 +1,23 @@
+\section{Manipulation and Grasping}
+\label{sec:grasping}
+
+For robot arm motion planning we used the MoveIt! software framework and its
+default randomized motion planners. Even though MoveIt! provides seamless integration with ROS-enabled robots, we faced some difficulties when applying it in our PR2 APC setup. The randomized planners (e.g. RRT) often had difficulties in finding collision free trajectories
+to move the robot arm in constrained spaces such as the interior of the bins. Even when it did find suitable trajectories, they would often  generate very large joint displacements even for small end-effector Cartesian motions, which 
+increased the chance of generating collisions with the shelf. 
+We partially alleviated these
+problems by exploiting the simpler 2D kinematic motion control of the robot base e.g.
+to retreat from the shelf. Optimization based motion planners and a more specialized
+kinematic structure of the robot are possible directions of work that would address
+these issues. 
+
+Once the target object is detected, the object frame is obtained from our vision system. Given that the PR2 is equipped with parallel grippers, we must then decide from which position and in which direction the gripper is going to approach the object in order to then grasp the object
+in a secure way. For this, we always project the object frame based on the bin frame such that the X axis of the object frame points inwards the shelf, and the Z axis points downwards. Note that in order to ensure that the object can be approached without generating collisions,
+we manually labeled all objects offline so that the X axis returned from the vision system can always be approached with the gripper, i.e. that the gripper opening is wide enough to grasp the corresponding side of the object. Thereafter, similarly to the grasping stages in \cite{hang2016b}, our grasping system works in the following steps:
+\begin{itemize}
+ \item \textbf{Pre-grasping:} The gripper is posed in front of the bin and aligned in X axis of object frame, the gripper's opening direction is aligned in the XY plane of object frame.
+ \item \textbf{Approaching:} The gripper approaches the object in X direction until a pre-determined depth in the object frame is reached.
+ \item \textbf{Grasping and lifting:} The gripper closes and lifts the object to a pre-determined height. At this point, we read the gripper's joint angle to check whether the object is grasped. If not, the system will return failure and give control back to the behavior tree. Otherwise, it returns success and continue to the next step.
+ \item \textbf{Post-grasping:} When the object is grasped, it is not trivial to plan a motion to move the arm out of the shelf, especially for large objects. Therefore, we first move the object to the bin center, and then move the whole robot backwards. Once the object is out of the shelf, the robot goes to the order bin and puts the object into it.
+\end{itemize}
+In cases when the target object is very small, e.g., tennis ball and duck toy etc., the approaching procedure shown above is not able to reach the object due to the collision with the bin bottom. In those cases, our system will first try to approach the above area of the object, and then move downwards to reach the desired grasping pose. It is worthwhile noticing that, dividing the grasping motion into steps significantly increased the success rate for MoveIt! to find solutions within a short time limitation, since the above steps efficiently guides the motion planner through narrow passages posed by the small bin areas. 
